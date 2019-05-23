@@ -1,0 +1,29 @@
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Arun's Site</title>
+	
+		{% load staticfiles %}
+		<link href="/static/blog/css/bootstrap.min.css" rel="stylesheet">
+		
+	</head>
+<div class="container">
+	<body>
+		<h1 class="text-align-center">SignUp Here</h1>
+		{% load staticfiles %}
+		<div class="row">
+			<div class="col-md-3">
+				<form method='POST' action=''>{% csrf_token %}
+					{{ form|crispy}}
+					FirstName: {{con.first_name}}<br/><br/>
+					LastName: {{con.last_name}}<br/><br/>
+					Email: {{con.email}}<br/><br/>
+					<input class='btn btn-primary' type='submit' value='Sign UP'/>
+				</form>
+			</div>
+		</div>
+	</body>
+</div>
+</html>

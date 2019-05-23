@@ -1,0 +1,24 @@
+{% extends 'leave1/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1 class="text-align-center">Enter your Profile</h1>
+{% load staticfiles %}
+<div class="row">
+    <div class="col-md-3">
+        <form method='POST' action=''>{% csrf_token %}
+            {{form|crispy}}
+            <h6>Manager</h6>
+            <select name="item_id">
+                {% for entry in items %}
+                    <option value="{{ entry.id }}">{{ entry.manager }}</option>
+                {% endfor %}
+            </select><br/><br/>
+            <input class='btn btn-primary' type='submit' value='SubMit'/>
+
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

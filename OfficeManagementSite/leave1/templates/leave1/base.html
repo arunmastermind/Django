@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel='shortcut icon' type='image/jpg' href='/static/leave1/image/logo.jpg' />
+    <title>Arun's TravelTek</title>
+    {% load staticfiles %}
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/leave1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/leave1/css/small-business.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="/static/leave1/js/html5shiv.js"></script>
+        <script src="/static/leave1/js/respond.min.js"></script>
+    <![endif]-->
+    <link href="/static/leave1/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/leave1/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link href="/static/leave1/css/agency.min.css" rel="stylesheet">
+
+    <link href="/static/leave1/css/business-casual.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+</head>
+
+<body style="background-color:bisque;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" style="margin-left: -372px">
+                    <img src="/static/leave1/image/logo1.png" width="275" alt="Traveltek: Your partners in Travel Technology">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{% url 'about' %}">About</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'services' %}">Services</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Employee Space<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                              <li><a href="{% url 'profile' %}"><abbr title="Employee Profile" style="border-bottom: 1px dotted white;">Profile</abbr></a></li>
+                              <li><a href="{% url 'lms' %}"><abbr title="Leave Management System" style="border-bottom: 1px dotted white;">LMS</abbr></a></li>
+                              <li><a href="#"><abbr title="Time Management System" style="border-bottom: 1px dotted white;">TMS</abbr></a></li>
+                              <li><a href="#"><abbr title="Exit Management System" style="border-bottom: 1px dotted white;">EMS</abbr></a></li>
+                              <li><a href="#">Claims</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                   {% if request.user.is_authenticated %}
+                  <li class="active"><a href="#">{{ request.user }}</a></li>
+                  <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+                  {% else %}
+                  <li><a href="{% url 'auth_login' %}">Login</a></li>
+                  <li><a href="{% url 'registration_register' %}">Regester</a></li>
+                  {% endif %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <section>
+        <div class="container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Arun's Website</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- jQuery -->
+    <script src="/static/leave1/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/leave1/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/static/leave1/js/jqBootstrapValidation.js"></script>
+    <script src="/static/leave1/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/static/leave1/js/agency.min.js"></script>
+            <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 2000 //changes the speed
+    })
+    </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+
+<html>
+	<head>
+		<title>Arun's Site</title>
+
+		{% load staticfiles %}
+		<link href="/static/blog/css/bootstrap.min.css" rel="stylesheet">
+
+	</head>
+<div class="container">
+	<body>
+		<h1 class="text-align-center">Enter your Profile</h1>
+		{% load staticfiles %}
+		<div class="row">
+			<div class="col-md-3">
+				<form method='POST' action=''>{% csrf_token %}
+                    {{form|crispy}}
+                    <select name="item_id">
+                        {% for entry in items %}
+                            <option value="{{ entry.id }}">{{ entry.manager }}</option>
+                        {% endfor %}
+                    </select><br/><br/>
+					<input class='btn btn-primary' type='submit' value='Sign UP'/>
+
+				</form>
+			</div>
+            <a href="/">Back</a></li>
+		</div>
+	</body>
+</div>
+</html>
