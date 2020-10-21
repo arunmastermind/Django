@@ -1,0 +1,31 @@
+{% extends 'api_basic/base.html' %}
+
+{% block content %}
+<div>
+	<h1>API Documentation</h1>
+	<pre>
+<h2>Available url's:</h2>
+<h3><a href="{% url 'admin:index' %}">admin/</a></h3>
+This is to provide the admin panel
+	As of now we have an article attached with user and group
+<h3><a href="{% url 'article_list2' %}">article2/</a></h3>
+This is a basic 'GET' and 'POST' API
+	This has been created using basic function
+<h3><a href="{% url 'article_detail2' 1 %}">detail2/</a></h3>
+This is a beaic 'GET', 'PUT' and 'DELETE' API
+	This is also created using a basic functioin
+<h3><a href="{% url 'article_list' %}">article1/</a></h3>
+This is a 'GET' and 'POST' API using 'API VIEW'
+<h3><a href="{% url 'article_detail' 1 %}">detail1/</a></h3>
+This is a 'GET', 'PUT' and 'DELETE' APi Using 'API VIEW'
+<h3><a href="{% url 'article_api_view' %}">article/</a></h3>
+This is a 'GET' and 'POST' API using 'Classes'
+<h3><a href="{% url 'detail_api_view' 1 %}">detail/</a></h3>
+This is a 'GET', 'PUT' and 'DELETE' APi Using 'Classes'
+<h3><a href="{% url 'generic_article_view' %}">generic/article/</a></h3>
+This is a 'GET' and 'POST' API using 'Generic Classes'
+<h3><a href="{% url 'generic_detail_view' 1 %}">generic/article/id</a></h3>
+This is a 'GET', 'PUT' and 'DELETE' APi Using 'Generic Classes'
+	</pre>
+</div>
+{% endblock %}
